@@ -13,7 +13,7 @@ update = function(props) {
       // Here we"re setting nodeclass, which is used by our custom drawNodes function
       // below.
       var i = 0;
-      
+
       var dict = {};
       var visit = function (inp, k) {
         console.log(inp.name + ' ' + k);
@@ -27,7 +27,7 @@ update = function(props) {
             }
             if(dict[inp.inputs[j].name] != dict[inp.name]) {
               g.setEdge(dict[inp.inputs[j].name], dict[inp.name],
-                {}); //lineInterpolate: 'linear' 
+                {}); //lineInterpolate: 'linear'
             }
           };
         }
@@ -86,7 +86,7 @@ var Graph = React.createClass({
 var Calc = React.createClass({
   getInitialState: function() {
     return {
-      recipe: null,
+      recipe: localStorage.recipe,
       ips: 1,
       opts: {
         asslvl: "0.5",
@@ -108,6 +108,7 @@ var Calc = React.createClass({
 
   },
   setRecipe: function(ev) {
+    localStorage.recipe = ev.target.value
     this.setState({recipe:ev.target.value}, this.calculate)
   },
   setOption: function(ev) {
@@ -206,7 +207,7 @@ var Calc = React.createClass({
           </div>
         </p>
       );
-     
+
     } else {
       options = (
         <p>
@@ -214,7 +215,7 @@ var Calc = React.createClass({
             <span className="glyphicon glyphicon-expand"></span>
             Show options
           </a>
-          
+
         </p>
       );
     }
@@ -224,7 +225,7 @@ var Calc = React.createClass({
           <span className="pull-right">
             Data source:
             <select
-              value={this.state.currentlib} 
+              value={this.state.currentlib}
               onChange={this.changeDataLib}>
               {this.props.datalibs.map(function(lib){
                 return <option key={lib}>{lib}</option>;
@@ -234,7 +235,7 @@ var Calc = React.createClass({
         </header>
         <p>
           Calculate the requirements for
-          <input 
+          <input
             id="recipe"
             type="text"
             list="recipes"
@@ -335,5 +336,5 @@ function renderCalc(recipeData) {
       datalibs={window.DATALIBS}
       currentlib={window.CURRENT_LIB}/>,
     document.getElementById('calc')
-  );	
+  );
 }
