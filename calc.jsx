@@ -319,9 +319,6 @@ var Req = React.createClass({
           <div className="ips">@
             <span className="val ips-val">{this.props.req.ips.toFixed(2)}</span>
             items/s
-            (or 
-            <span className="val ips-val">{(1.0 / this.props.req.ips).toFixed(2)}</span>
-            s/item)
           </div>
           {details}
         </div>
