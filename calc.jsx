@@ -330,7 +330,7 @@ var Req = React.createClass({
 });
 
 function renderCalc(recipeData) {
-  React.renderComponent(
+  React.render(
     <Calc
       recipes={recipeData}
       datalibs={window.DATALIBS}
