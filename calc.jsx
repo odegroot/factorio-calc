@@ -276,7 +276,7 @@ var Req = React.createClass({
         <div className="assemblers">
           requires
           <span className="val">{this.props.req.assemblers.toFixed(2)}</span>
-          assemblers
+          {machines_name_for(this.props.req.category)}
         </div>,
       ];
     } else {
@@ -306,4 +306,14 @@ function renderCalc(recipeData) {
       currentlib={window.CURRENT_LIB}/>,
     document.getElementById('calc')
   );
+}
+
+function machines_name_for(recipe_category) {
+  if (recipe_category === 'smelting') {
+    return 'furnaces';
+  } else if (recipe_category === 'chemistry') {
+    return 'chemical plants';
+  } else {
+    return 'assembling machines';
+  }
 }

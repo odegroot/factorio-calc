@@ -1,5 +1,3 @@
-
-
 function get_recipe(name, options)
 	local rdata = data.raw.recipe[name]
 	local recipe = {}
@@ -8,6 +6,7 @@ function get_recipe(name, options)
 	end
 	recipe.name = rdata.name
 	recipe.time = rdata.energy_required or 0.5
+	recipe.category = rdata.category
 	if rdata.category == 'smelting' then
 		console(options.smeltlvl)
 		recipe.time = recipe.time / tonumber(options.smeltlvl)
@@ -58,6 +57,7 @@ function request(name, ips, options)
 	req.ips = ips
 	req.ipspa = recipe.ips
 	req.assemblers = req.ips / req.ipspa
+	req.category = recipe.category
 	req.cycle_time = recipe.time
 	req.inputs = {}
 	for i, input in ipairs(recipe.inputs) do
