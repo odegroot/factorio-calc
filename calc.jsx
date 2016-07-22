@@ -141,14 +141,6 @@ var Calc = React.createClass({
     return <Graph req={result} />;
   },
 
-  showOptions: function(ev) {
-    ev.preventDefault();
-    this.setState({showOptions: true});
-  },
-  hideOptions: function(ev) {
-    ev.preventDefault();
-    this.setState({showOptions: false});
-  },
   render: function() {
     var result, subtotals, layout;
     if (this.state.result) {
@@ -160,49 +152,29 @@ var Calc = React.createClass({
       }
       layout = this.getGraph(this.state.result);
     }
-    var options;
-    if (this.state.showOptions) {
-      options = (
-        <p>
-          <a onClick={this.hideOptions} href="">
-            <span className="glyphicon glyphicon-collapse-down"></span>
-            Hide options
-          </a>
-          <div id="options">
-            <label>Assembler level:
-              <select
-                value={this.state.opts.asslvl}
-                name="asslvl"
-                onChange={this.setOption}>
-                <option value="0.5">1 (0.5 modifier)</option>
-                <option value="0.75">2 (0.75 modifier)</option>
-                <option value="1.25">3 (1.25 modifier)</option>
-              </select>
-            </label>
-            <label>Smelter level:
-              <select
-                value={this.state.opts.smeltlvl}
-                name="smeltlvl"
-                onChange={this.setOption}>
-                <option value="1">Stone</option>
-                <option value="2">Steel / Electric</option>
-              </select>
-            </label>
-          </div>
-        </p>
-      );
-
-    } else {
-      options = (
-        <p>
-          <a onClick={this.showOptions} href="">
-            <span className="glyphicon glyphicon-expand"></span>
-            Show options
-          </a>
-
-        </p>
-      );
-    }
+    var options = (
+      <p>
+        <label>Assembler level:
+          <select
+            value={this.state.opts.asslvl}
+            name="asslvl"
+            onChange={this.setOption}>
+            <option value="0.5">1 (0.5 modifier)</option>
+            <option value="0.75">2 (0.75 modifier)</option>
+            <option value="1.25">3 (1.25 modifier)</option>
+          </select>
+        </label>
+        <label>Smelter level:
+          <select
+            value={this.state.opts.smeltlvl}
+            name="smeltlvl"
+            onChange={this.setOption}>
+            <option value="1">Stone</option>
+            <option value="2">Steel / Electric</option>
+          </select>
+        </label>
+      </p>
+    );
     return (
     	<div>
         <header>
