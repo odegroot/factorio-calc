@@ -14,7 +14,15 @@ header > div {
 	margin-bottom: 1em;
 }
 header .data-source select {
-	margin-left:1em;
+	margin-left: 1em;
+}
+label {
+	/* Don't use Bootstrap's bold labels. */
+	font-weight: initial;
+}
+.options select {
+	margin-left: 1em;
+	margin-right: 2em;
 }
 #recipe {
 	width: 20em;

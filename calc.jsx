@@ -153,7 +153,7 @@ var Calc = React.createClass({
       layout = this.getGraph(this.state.result);
     }
     var options = (
-      <p>
+      <div className="options">
         <label>Assembler level:
           <select
             value={this.state.opts.asslvl}
@@ -173,7 +173,7 @@ var Calc = React.createClass({
             <option value="2">Steel / Electric</option>
           </select>
         </label>
-      </p>
+      </div>
     );
     return (
     	<div>
@@ -203,14 +203,16 @@ var Calc = React.createClass({
             item(s) / second.
           </div>
           <div className="data-source">
-            Data source:
-            <select
-              value={this.state.currentlib}
-              onChange={this.changeDataLib}>
-              {this.props.datalibs.map(function(lib){
-                return <option key={lib}>{lib}</option>;
-              })}
-            </select>
+            <label>
+              Data source:
+              <select
+                value={this.state.currentlib}
+                onChange={this.changeDataLib}>
+                {this.props.datalibs.map(function(lib){
+                  return <option key={lib}>{lib}</option>;
+                  })}
+                </select>
+            </label>
           </div>
         </header>
         {options}
