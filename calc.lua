@@ -58,11 +58,10 @@ function request(name, ips, options)
 	req.ipspa = recipe.ips
 	req.assemblers = req.ips / req.ipspa
 	req.category = recipe.category
-	req.cycle_time = recipe.time
 	req.inputs = {}
 	for i, input in ipairs(recipe.inputs) do
 		local ingr_per_cycle = input.amount * req.assemblers
-		local ingr_required_ips = ingr_per_cycle /  req.cycle_time
+		local ingr_required_ips = ingr_per_cycle /  recipe.time
 		table.insert(req.inputs,
 			request(input.name, ingr_required_ips, options))
 	end
