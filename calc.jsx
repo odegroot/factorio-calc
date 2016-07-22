@@ -303,10 +303,6 @@ var Req = React.createClass({
             cycles every
             <span className="val">{this.props.req.cycle_time.toFixed(2)}s</span>
           </div>
-          <div className="ipspa">
-            @
-            <span className="val">{this.props.req.ipspa.toFixed(2)}</span>i/s
-          </div>
           )
         </div>
       ];
