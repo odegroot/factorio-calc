@@ -58,7 +58,6 @@ function request(name, ips, options)
 	req.ips = ips
 	req.ipspa = recipe.ips
 	req.assemblers = req.ips / req.ipspa
-	req.assembler_max_line = tonumber(options.beltlvl) / recipe.ips
 	req.cycle_time = recipe.time
 	req.inputs = {}
 	for i, input in ipairs(recipe.inputs) do

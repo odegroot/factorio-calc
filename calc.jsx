@@ -125,7 +125,6 @@ var Calc = React.createClass({
         name: req.name,
         ips: 0,
         ipspa: req.ipspa,
-        assembler_max_line: req.assembler_max_line,
       }
     }
     var sub = subtotals[req.name];
@@ -285,14 +284,6 @@ var Req = React.createClass({
           <span className="val">{this.props.req.assemblers.toFixed(2)}</span>
           assemblers
         </div>,
-        <div className="recipe-info">
-          (
-          <div className="assembler_max_line">
-            <span className="val">{this.props.req.assembler_max_line.toFixed(2)}</span>
-            max assemblers per line
-          </div>
-          )
-        </div>
       ];
     } else {
       details = null;
