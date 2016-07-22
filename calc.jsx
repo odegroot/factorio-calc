@@ -87,10 +87,10 @@ var Calc = React.createClass({
   getInitialState: function() {
     return {
       recipe: localStorage.recipe,
-      ips: 1,
+      ips: localStorage.ips || 1,
       opts: {
-        asslvl: "0.5",
-        smeltlvl: "1",
+        asslvl: localStorage.asslvl || "0.5",
+        smeltlvl: localStorage.smeltlvl || "1",
       }
     };
   },
@@ -103,15 +103,16 @@ var Calc = React.createClass({
     this.setState({result: req})
   },
   setIPS: function(ev) {
-    this.setState({ips:ev.target.value}, this.calculate)
-
+    localStorage.ips = ev.target.value;
+    this.setState({ips:ev.target.value}, this.calculate);
   },
   setRecipe: function(ev) {
-    localStorage.recipe = ev.target.value
-    this.setState({recipe:ev.target.value}, this.calculate)
+    localStorage.recipe = ev.target.value;
+    this.setState({recipe:ev.target.value}, this.calculate);
   },
   setOption: function(ev) {
     var state = {opts:this.state.opts};
+    localStorage[ev.target.name] = ev.target.value;
     state.opts[ev.target.name] = ev.target.value;
     this.setState(state, this.calculate);
   },
