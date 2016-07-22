@@ -1,10 +1,19 @@
 body {
 	padding:1em;
 }
-header .pull-right {
-	padding-right: 130px;
+header {
+  display: flex;
+	justify-content: space-between;
+  flex-wrap: wrap;
+	align-items: baseline;
+  margin-right: 120px;
 }
-header .pull-right select {
+header > div {
+	display: inline-block;
+	margin-right: 1em;
+	margin-bottom: 1em;
+}
+header .data-source select {
 	margin-left:1em;
 }
 #recipe {

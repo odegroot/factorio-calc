@@ -205,8 +205,32 @@ var Calc = React.createClass({
     }
     return (
     	<div>
-        <header className="clearfix">
-          <span className="pull-right">
+        <header>
+          <div>
+            Calculate the requirements for
+            <input
+              id="recipe"
+              type="text"
+              list="recipes"
+              placeholder="recipe name"
+              value={this.state.recipe}
+              onChange={this.setRecipe}/>
+            <datalist id="recipes">
+              {Object.keys(this.props.recipes).map(function(recipe) {
+                  return <option key={recipe}>{recipe}</option>;
+                })}
+            </datalist>
+            producing at a rate of
+            <input
+              id="ips"
+              type="number"
+              min="0"
+              step="any"
+              value={this.state.ips}
+              onChange={this.setIPS}/>
+            item(s) / second.
+          </div>
+          <div className="data-source">
             Data source:
             <select
               value={this.state.currentlib}
@@ -215,32 +239,8 @@ var Calc = React.createClass({
                 return <option key={lib}>{lib}</option>;
               })}
             </select>
-          </span>
+          </div>
         </header>
-        <p>
-          Calculate the requirements for
-          <input
-            id="recipe"
-            type="text"
-            list="recipes"
-            placeholder="recipe name"
-            value={this.state.recipe}
-            onChange={this.setRecipe}/>
-          <datalist id="recipes">
-          	{Object.keys(this.props.recipes).map(function(recipe) {
-    	          return <option key={recipe}>{recipe}</option>;
-    	        })}
-          </datalist>
-          producing at a rate of
-          <input
-            id="ips"
-            type="number"
-            min="0"
-            step="any"
-            value={this.state.ips}
-            onChange={this.setIPS}/>
-          item(s) / second.
-        </p>
         {options}
         <div className="row">
           <div className="col-lg-6">
