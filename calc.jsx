@@ -91,7 +91,6 @@ var Calc = React.createClass({
       opts: {
         asslvl: "0.5",
         smeltlvl: "1",
-        beltlvl: "5.7",
       }
     };
   },
@@ -186,19 +185,6 @@ var Calc = React.createClass({
                 onChange={this.setOption}>
                 <option value="1">Stone</option>
                 <option value="2">Steel / Electric</option>
-              </select>
-            </label>
-            <label>Belt speed:
-              <select
-                value={this.state.opts.beltlvl}
-                name="beltlvl"
-                onChange={this.setOption}>
-                <option value="3.8">Basic (slow corners)</option>
-                <option value="5.7">Basic (straight)</option>
-                <option value="6.3">Fast (slow corners)</option>
-                <option value="9.4">Fast (straight)</option>
-                <option value="8.3">Express (slow corners)</option>
-                <option value="14.2">Express (straight)</option>
               </select>
             </label>
           </div>

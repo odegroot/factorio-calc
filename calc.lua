@@ -47,7 +47,7 @@ end
 function request(name, ips, options)
 	local recipe = get_recipe(name, options)
 	if not options then
-		options = {asslvl = 1, smeltlvl = 1, beltlvl = 14.2}
+		options = {asslvl = 1, smeltlvl = 1}
 	end
 	if not recipe then
 		return {name = name, ips=ips}
