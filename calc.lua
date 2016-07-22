@@ -20,7 +20,7 @@ function get_recipe(name, options)
 					recipe.outputs = res.amount
 				end
 			end
-		else 
+		else
 			recipe.outputs = 1
 		end
 	else
@@ -52,14 +52,13 @@ function request(name, ips, options)
 	if not recipe then
 		return {name = name, ips=ips}
 	end
-	
+
 	local req = {}
 	req.name = recipe.name
 	req.ips = ips
-	req.ipspa = recipe.ips 
+	req.ipspa = recipe.ips
 	req.assemblers = req.ips / req.ipspa
 	req.assembler_max_line = tonumber(options.beltlvl) / recipe.ips
-	req.lines_required = req.assemblers / math.floor(req.assembler_max_line)
 	req.cycle_time = recipe.time
 	req.inputs = {}
 	for i, input in ipairs(recipe.inputs) do

@@ -57,7 +57,7 @@ local BELT_THROUGHPUT = 14.2 -- wiki measure is 14.8, but mine is closer to 14
 function request(name, ips)
 	local recipe = get_recipe(name)
 	if not recipe then
-		return {name = name, ips=ips, lines_required=(BELT_THROUGHPUT/ips)}
+		return {name = name, ips = ips}
 	end
 	local req = {}
 	req.name = recipe.name
@@ -65,7 +65,6 @@ function request(name, ips)
 	req.ipspa = recipe.ips
 	req.assemblers = req.ips / recipe.ips
 	req.assembler_max_line = BELT_THROUGHPUT / recipe.ips
-	req.lines_required = req.assemblers / math.floor(req.assembler_max_line)
 	req.cycle_time = recipe.time
 	req.inputs = {}
 	for i, input in ipairs(recipe.inputs) do
@@ -92,9 +91,6 @@ function write_req(file, req, depth)
 	if req.assemblers then
 		file:write('<td>')
 		file:write(string.format("%.3f",req.assemblers))
-		file:write('</td>')
-		file:write('<td>')
-		file:write(string.format("%.3f",req.lines_required))
 		file:write('</td>')
 		file:write('<td>')
 		file:write(req.assembler_max_line)
@@ -140,7 +136,6 @@ function html_report(file_name, req)
 	file:write('<th>items / <br/> second</th>')
 	file:write('<th>seconds /<br/> item</th>')
 	file:write('<th>Assemblers <br />Required</th>')
-	file:write('<th>Lines<br /> Required</th>')
 	file:write('<th>Max Assembly <br />Line Length</th>')
 	file:write('<th>Assembly<br />Cycle</th>')
 	file:write('<th>i/s/a</th>')
@@ -154,4 +149,3 @@ function html_report(file_name, req)
 end
 
 html_report('factorio.html', request('science-pack-1', 1))
-

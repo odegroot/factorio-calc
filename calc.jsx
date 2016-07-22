@@ -131,7 +131,6 @@ var Calc = React.createClass({
     var sub = subtotals[req.name];
     sub.ips += req.ips;
     sub.assemblers = sub.ips / sub.ipspa;
-    sub.lines_required = sub.assemblers / Math.floor(sub.assembler_max_line);
     if (req.inputs) {
       for (var i = req.inputs.length - 1; i >= 0; i--) {
         this.getSubtotals(req.inputs[i], subtotals);
@@ -285,11 +284,6 @@ var Req = React.createClass({
           requires
           <span className="val">{this.props.req.assemblers.toFixed(2)}</span>
           assemblers
-        </div>,
-        <div className="lines_required">
-          on
-          <span className="val">{this.props.req.lines_required.toFixed(2)}</span>
-          assembly lines
         </div>,
         <div className="recipe-info">
           (
