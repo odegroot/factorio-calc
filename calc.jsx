@@ -242,9 +242,16 @@ var Calc = React.createClass({
           item(s) / second.
         </p>
         {options}
-        {result}
-        <h2>Sub-totals</h2>
-        {subtotals}
+        <div className="row">
+          <div className="col-lg-6">
+            <h2>Requirements</h2>
+            {result}
+          </div>
+          <div className="col-lg-6">
+            <h2>Sub-totals</h2>
+            {subtotals}
+          </div>
+        </div>
         <h2>Layout</h2>
         {layout}
     </div>
