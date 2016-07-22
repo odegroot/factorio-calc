@@ -3,7 +3,7 @@ factorio-calc
 
 For all your obsessive optimizing needs.
 
-https://rubyruy.github.io/factorio-calc/
+https://odegroot.github.io/factorio-calc/
 
 # Contribute a data source #
 
