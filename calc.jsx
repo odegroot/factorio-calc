@@ -1,4 +1,3 @@
-/** @jsx React.DOM */
 // react component
 
 // Create the input graph
