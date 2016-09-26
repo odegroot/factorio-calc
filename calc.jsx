@@ -146,7 +146,7 @@ var Calc = React.createClass({
       result = <Req req={this.state.result}/>;
       var subs = this.getSubtotals(this.state.result);
       subtotals = [];
-      for( n in subs ) {
+      for (var n in subs) {
         subtotals.push(<Req req={subs[n]} />);
       }
       layout = this.getGraph(this.state.result);
