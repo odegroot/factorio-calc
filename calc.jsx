@@ -1,3 +1,4 @@
+"use strict";
 // react component
 
 // Create the input graph
