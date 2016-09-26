@@ -2,8 +2,7 @@
 
 // Create the input graph
 
-
-update = function(props) {
+function update(props) {
     return function(me) {
       var g = new dagreD3.graphlib.Graph()
         .setGraph({})
