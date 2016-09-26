@@ -98,7 +98,7 @@ var Calc = React.createClass({
     window.location.reload();
   },
   calculate: function() {
-    req = window.calcRequest.call(this.state.recipe, parseFloat(this.state.ips), this.state.opts)
+    var req = window.calcRequest.call(this.state.recipe, parseFloat(this.state.ips), this.state.opts)
     this.setState({result: req})
   },
   setIPS: function(ev) {
