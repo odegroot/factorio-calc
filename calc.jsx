@@ -1,10 +1,9 @@
-/** @jsx React.DOM */
+"use strict";
 // react component
 
 // Create the input graph
 
-
-update = function(props) {
+function update(props) {
     return function(me) {
       var g = new dagreD3.graphlib.Graph()
         .setGraph({})
@@ -16,7 +15,6 @@ update = function(props) {
 
       var dict = {};
       var visit = function (inp, k) {
-        console.log(inp.name + ' ' + k);
         dict[inp.name] = k;
         g.setNode(k, { label: inp.name, class: "type-TOP"});
         if (inp.inputs && inp.inputs.length) {
@@ -99,7 +97,7 @@ var Calc = React.createClass({
     window.location.reload();
   },
   calculate: function() {
-    req = window.calcRequest.call(this.state.recipe, parseFloat(this.state.ips), this.state.opts)
+    var req = window.calcRequest.call(this.state.recipe, parseFloat(this.state.ips), this.state.opts)
     this.setState({result: req})
   },
   setIPS: function(ev) {
@@ -145,9 +143,9 @@ var Calc = React.createClass({
     var result, subtotals, layout;
     if (this.state.result) {
       result = <Req req={this.state.result}/>;
-      subs = this.getSubtotals(this.state.result);
+      var subs = this.getSubtotals(this.state.result);
       subtotals = [];
-      for( n in subs ) {
+      for (var n in subs) {
         subtotals.push(<Req req={subs[n]} />);
       }
       layout = this.getGraph(this.state.result);
@@ -272,7 +270,7 @@ var Req = React.createClass({
   }
 });
 
-function renderCalc(recipeData) {
+window.renderCalc = function(recipeData) {
   React.render(
     <Calc
       recipes={recipeData}
