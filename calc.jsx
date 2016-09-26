@@ -15,7 +15,6 @@ function update(props) {
 
       var dict = {};
       var visit = function (inp, k) {
-        console.log(inp.name + ' ' + k);
         dict[inp.name] = k;
         g.setNode(k, { label: inp.name, class: "type-TOP"});
         if (inp.inputs && inp.inputs.length) {
