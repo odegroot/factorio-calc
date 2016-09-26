@@ -34,9 +34,9 @@
 		require('calc')
 		require('ffi')
 		js.global:renderCalc(to_js_val(data.raw.recipe))
-		function calc_request(recipe, ips, opts)
+		function calc_request(recipe, ips, opts) -- { // fake braces to fix Atom's failing syntax highlighting
 			return to_js_val(request(tostring(recipe), ips, opts))
-		end
+		end --}
 		js.global.calcRequest = calc_request
 	</script>
 	<style>
