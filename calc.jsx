@@ -271,7 +271,7 @@ var Req = React.createClass({
   }
 });
 
-function renderCalc(recipeData) {
+window.renderCalc = function(recipeData) {
   React.render(
     <Calc
       recipes={recipeData}
