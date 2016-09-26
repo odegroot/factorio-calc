@@ -2,6 +2,7 @@
 	<title>Factorio Calc</title>
 	<script type="text/javascript">
 		DATALIBS = [
+			'core-0-13-15',
 			'core-0-13-0',
 			'core-0-12-33',
 			'core-0-11-3',
@@ -23,7 +24,7 @@
 	<script type="text/jsx" src="calc.jsx"></script>
 	<script type="text/lua">
 		if #window.location.hash == 0 then
-			window.location.hash = '#core-0-13-0'
+			window.location.hash = '#core-0-13-15'
 		end
 		datalib = window.location.hash:sub(2)
 		js.global.CURRENT_LIB = datalib
