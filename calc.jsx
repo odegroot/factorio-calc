@@ -144,7 +144,7 @@ var Calc = React.createClass({
     var result, subtotals, layout;
     if (this.state.result) {
       result = <Req req={this.state.result}/>;
-      subs = this.getSubtotals(this.state.result);
+      var subs = this.getSubtotals(this.state.result);
       subtotals = [];
       for( n in subs ) {
         subtotals.push(<Req req={subs[n]} />);
