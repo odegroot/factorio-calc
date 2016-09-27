@@ -33,11 +33,17 @@
 		require('data.'..datalib)
 		require('calc')
 		require('ffi')
-		js.global:renderCalc(to_js_val(data.raw.recipe))
 		function calc_request(recipe, ips, opts) -- { // fake braces to fix Atom's failing syntax highlighting
 			return to_js_val(request(tostring(recipe), ips, opts))
 		end --}
 		js.global.calcRequest = calc_request
+
+		js.global.lua_loaded = true
+		if js.global.jsx_loaded then
+			js.global:renderCalc(to_js_val(data.raw.recipe))
+		else
+			js.global.recipeData = to_js_val(data.raw.recipe)
+		end
 	</script>
 	<style>
 	/* This sets the color for "TK" nodes to a light blue green. */

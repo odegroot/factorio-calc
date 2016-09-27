@@ -289,3 +289,8 @@ function machines_name_for(recipe_category) {
     return 'assembling machines';
   }
 }
+
+window.jsx_loaded = true
+if (window.lua_loaded) {
+  window.renderCalc(window.recipeData)
+}
