@@ -245,7 +245,7 @@ var Req = React.createClass({
     }
     if (this.props.req.assemblers) {
       details = [
-        <div className="assemblers">
+        <div key="assemblers" className="assemblers">
           requires
           <span className="val">{this.props.req.assemblers.toFixed(2)}</span>
           {machines_name_for(this.props.req.category)}
@@ -258,7 +258,7 @@ var Req = React.createClass({
       <div className="req">
         <div className="name">{this.props.req.name}</div>
         <div className="data">
-          <div className="ips">@
+          <div key="ips" className="ips">@
             <span className="val ips-val">{this.props.req.ips.toFixed(2)}</span>
             items/s
           </div>
