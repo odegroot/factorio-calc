@@ -66,12 +66,12 @@ var Graph = React.createClass({
         return <svg width="960" height="600"></svg>;
     },
     componentDidMount: function () {
-        d3.select(this.getDOMNode())
+        d3.select(ReactDOM.findDOMNode(this))
             .append("g")
             .call(update(this.props));
     },
     shouldComponentUpdate: function(props) {
-        d3.select(this.getDOMNode())
+        d3.select(ReactDOM.findDOMNode(this))
             .select("g")
             .call(update(props));
 
@@ -146,7 +146,7 @@ var Calc = React.createClass({
       var subs = this.getSubtotals(this.state.result);
       subtotals = [];
       for (var n in subs) {
-        subtotals.push(<Req req={subs[n]} />);
+        subtotals.push(<Req key={subs[n].name} req={subs[n]} />);
       }
       layout = this.getGraph(this.state.result);
     }
@@ -238,14 +238,14 @@ var Req = React.createClass({
       inputs = (
         <div className="inputs">
           {this.props.req.inputs.map(function(input){
-            return <Req req={input} />;
+            return <Req key={input.name} req={input} />;
           })}
         </div>
       );
     }
     if (this.props.req.assemblers) {
       details = [
-        <div className="assemblers">
+        <div key="assemblers" className="assemblers">
           requires
           <span className="val">{this.props.req.assemblers.toFixed(2)}</span>
           {machines_name_for(this.props.req.category)}
@@ -258,7 +258,7 @@ var Req = React.createClass({
       <div className="req">
         <div className="name">{this.props.req.name}</div>
         <div className="data">
-          <div className="ips">@
+          <div key="ips" className="ips">@
             <span className="val ips-val">{this.props.req.ips.toFixed(2)}</span>
             items/s
           </div>
@@ -271,7 +271,7 @@ var Req = React.createClass({
 });
 
 window.renderCalc = function(recipeData) {
-  React.render(
+  ReactDOM.render(
     <Calc
       recipes={recipeData}
       datalibs={window.DATALIBS}
