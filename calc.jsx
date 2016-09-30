@@ -66,12 +66,12 @@ var Graph = React.createClass({
         return <svg width="960" height="600"></svg>;
     },
     componentDidMount: function () {
-        d3.select(this.getDOMNode())
+        d3.select(ReactDOM.findDOMNode(this))
             .append("g")
             .call(update(this.props));
     },
     shouldComponentUpdate: function(props) {
-        d3.select(this.getDOMNode())
+        d3.select(ReactDOM.findDOMNode(this))
             .select("g")
             .call(update(props));
 
