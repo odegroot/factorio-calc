@@ -238,7 +238,7 @@ var Req = React.createClass({
       inputs = (
         <div className="inputs">
           {this.props.req.inputs.map(function(input){
-            return <Req req={input} />;
+            return <Req key={input.name} req={input} />;
           })}
         </div>
       );
