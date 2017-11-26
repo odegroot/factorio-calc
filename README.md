@@ -5,6 +5,10 @@ For all your obsessive optimizing needs.
 
 https://odegroot.github.io/factorio-calc/
 
+# Run the optimiser locally #
+
+`ruby serve-github-pages.rb`
+
 # Contribute a data source #
 
 Additional data sources are welcome - the calculator should work just fine with mods!
