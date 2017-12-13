@@ -18,11 +18,11 @@ class Calc extends React.Component {
     input:            JSON.parse(localStorage.getItem("input"))            || { recipe: "", ipm: 1 },
     additionalInputs: JSON.parse(localStorage.getItem("additionalInputs")) || [],
     options:          JSON.parse(localStorage.getItem("options"))          || {
-      asslvl: "0.5",
-      smeltlvl:"1",
-      beltlvl: "5.7",
+      asslvl: "0.75",
+      smeltlvl: "2",
+      beltlvl: "13.33",
       difficulty: "normal",
-      alwaysShowDecimals: false
+      alwaysShowDecimals: true
     },
     explainingRecipe: null,
     bulkVisible: false
